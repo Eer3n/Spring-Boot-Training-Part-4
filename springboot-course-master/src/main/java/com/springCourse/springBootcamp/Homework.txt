@@ -1,0 +1,28 @@
+
+Question 1.1
+    - add properties that available below to "Seller" Entity.
+        - username (String)
+        - password (String)
+        - mailAddress (String)
+    - create a method in "SellerDao" that takes mailAddress and password as parameter and return Its respective Seller.
+    - create method in "SellerService" that takes mailAddress and password as parameter and return Its respective Seller.
+
+Question 1.2
+    - create an Enum list named "RestrictedCountries" and add these countries. Then also add these countries into Countries Enum as well.
+        - Iran
+        - NorthKorea
+        - NorthAmerica
+        - Africa
+    - create a method in "SellerService" that checks the country of given Seller Entity and if that entity's country type is "Restricted" type
+    return null instead of SellerEntity itself.
+
+Question 1.3
+    - create a controller for "Seller" Entity and add these EndPoints
+        - findAll (type: GetMapping)
+        - finById (type: GetMapping)
+        - findByUsernameAndPassword (type: GetMapping)
+
+Question 2.1
+    - purpose of @Transient Annotation
+    - what is CRUD and Crud Repository
+    - difference between Crud and JPA Repositories
