@@ -1,7 +1,7 @@
 package com.springCourse.springBootcamp.Buyer.Controller;
 
-import com.springCourse.springBootcamp.Buyer.Dto.BuyerDto;
 import com.springCourse.springBootcamp.Buyer.Entity.Buyer;
+import com.springCourse.springBootcamp.Buyer.Exception.BuyerNotFoundException;
 import com.springCourse.springBootcamp.Buyer.Service.BuyerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,7 @@ public class BuyerController {
     public Buyer findByUsernameAndPassword(@PathVariable String username, @PathVariable String password) throws Exception {
         Buyer buyer = buyerService.findAllByUsernameAndPassword(username, password);
         if (buyer == null) {
-            throw new RuntimeException("user not found!");
+            throw new BuyerNotFoundException("user not found!");
         }
         return buyer;
     }
@@ -37,6 +37,5 @@ public class BuyerController {
     @PostMapping("/create")
     public void save(@RequestBody Buyer buyer) {
         buyerService.createNewBuyer(buyer);
-
     }
 }

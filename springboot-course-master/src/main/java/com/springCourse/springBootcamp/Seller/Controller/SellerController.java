@@ -32,5 +32,4 @@ public class SellerController {
     public Seller findByUsernameAndPassword(@PathVariable String username, @PathVariable String password) {
         return sellerService.findAllByUsernameAndPassword(username, password);
     }
-
 }

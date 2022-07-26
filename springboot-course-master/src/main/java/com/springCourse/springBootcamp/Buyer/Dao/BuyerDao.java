@@ -25,4 +25,5 @@ public interface BuyerDao extends JpaRepository<Buyer, Long> {
 
     @Query("delete from Buyer buyer where buyer.Id=:buyerId")
     void deleteAllById(@Param("buyerId") Long Id);
+
 }

@@ -1,28 +1,42 @@
 
 Question 1.1
-    - add properties that available below to "Seller" Entity.
-        - username (String)
-        - password (String)
-        - mailAddress (String)
-    - create a method in "SellerDao" that takes mailAddress and password as parameter and return Its respective Seller.
-    - create method in "SellerService" that takes mailAddress and password as parameter and return Its respective Seller.
+    - create a custom "SellerNotFound" Exception class that will extend from RuntimeException class.
+    - implement that new exception into necessary fields in "SellerController"
 
 Question 1.2
-    - create an Enum list named "RestrictedCountries" and add these countries. Then also add these countries into Countries Enum as well.
-        - Iran
-        - NorthKorea
-        - NorthAmerica
-        - Africa
-    - create a method in "SellerService" that checks the country of given Seller Entity and if that entity's country type is "Restricted" type
-    return null instead of SellerEntity itself.
+    - create an endpoint for Buyer and Seller entities that will take entity from request body and will save those directly.
+    - create an endpoint for Buyer and Seller entities that will take entity from request body and will delete given entity from database.
+        (you may have to create methods for both Dao and Service levels)
 
-Question 1.3
-    - create a controller for "Seller" Entity and add these EndPoints
-        - findAll (type: GetMapping)
-        - finById (type: GetMapping)
-        - findByUsernameAndPassword (type: GetMapping)
+ Question 2.1
+    - create a new entity called "Product" and It's table name should be "SPRING_PRODUCT" then add these necessary properties.
+        - Id (Long)
+        - seller (Seller)
+        - title (String)
+        - shortText (String)
+        - longText (String)
+        - insDate (Date)
+        - updDate (Date)
+        - displayPrice (double)
+        - discountPrice (double)
+        - isDeleted (Boolean)
 
-Question 2.1
-    - purpose of @Transient Annotation
-    - what is CRUD and Crud Repository
-    - difference between Crud and JPA Repositories
+Question 2.2
+    - create a service and dao methods for Product Entity, then add these methods Note: Dao should be extended from JPARepository
+        - should return all products.
+        - should find a product with given Id.
+        - should save new product
+        - should delete given product
+
+    - create a controller for product entity, then add these necessary endpoints
+        - should return all products.
+        - should find a product with given Id.
+        - should save new product
+        - should delete given product
+
+    - create exception system for "ProductNotFound"
+
+Question 2.3
+    - purpose of @JoinColumn annotation.
+    - purpose of @ManyToOne annotation.
+    - purpose of @Column(columnDefinition = "TEXT") annotation.
