@@ -33,6 +33,7 @@ public class BuyerService {
         return buyerDao.save(buyer);
     }
 
+
     public void deleteGivenBuyer(Buyer buyer){buyerDao.delete(buyer);}
 
     public void deleteById(Long Id) {

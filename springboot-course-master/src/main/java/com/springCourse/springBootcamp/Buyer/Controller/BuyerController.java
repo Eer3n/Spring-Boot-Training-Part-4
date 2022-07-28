@@ -39,6 +39,10 @@ public class BuyerController {
         buyerService.createNewBuyer(buyer);
     }
 
+
     @PostMapping("/delete")
-    public void delete(@RequestBody Buyer buyer){buyerService.deleteGivenBuyer(buyer);}
+    public void delete(@RequestBody Buyer buyer) {
+        buyerService.deleteGivenBuyer(buyer);
+    }
 }
+

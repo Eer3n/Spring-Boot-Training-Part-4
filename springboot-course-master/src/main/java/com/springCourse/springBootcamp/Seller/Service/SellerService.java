@@ -39,9 +39,11 @@ public class SellerService {
         return sellerDao.findAllByUsernameAndPassword(username, password);
     }
 
+
     public Seller createNewSeller(Seller seller){return sellerDao.save(seller);}
 
     public void deleteGivenSeller(Seller seller){sellerDao.delete(seller);}
+
 
     /*public Seller isSellerSellsToValidCountry(Seller seller) {
         List<String> restrictedCountryList = List.of(Arrays.toString(RestrictedCountries.class.getEnumConstants()));

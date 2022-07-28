@@ -1,14 +1,26 @@
 
+
 Question 1.1 (+)
     - create a custom "SellerNotFound" Exception class that will extend from RuntimeException class.
     - implement that new exception into necessary fields in "SellerController"
 
 Question 1.2 (+)
+
+Question 1.1
+    - create a custom "SellerNotFound" Exception class that will extend from RuntimeException class.
+    - implement that new exception into necessary fields in "SellerController"
+
+Question 1.2
+
     - create an endpoint for Buyer and Seller entities that will take entity from request body and will save those directly.
     - create an endpoint for Buyer and Seller entities that will take entity from request body and will delete given entity from database.
         (you may have to create methods for both Dao and Service levels)
 
+
  Question 2.1 (+)
+
+ Question 2.1
+
     - create a new entity called "Product" and It's table name should be "SPRING_PRODUCT" then add these necessary properties.
         - Id (Long)
         - seller (Seller)
@@ -21,6 +33,7 @@ Question 1.2 (+)
         - discountPrice (double)
         - isDeleted (Boolean)
 
+
 Question 2.2 (+)
     - create a service and dao methods for Product Entity, then add these methods Note: Dao should be extended from JPARepository
         - should return all products.+
@@ -29,14 +42,28 @@ Question 2.2 (+)
         - should delete given product+
 
     - create a controller for product entity, then add these necessary endpoints+
+
+Question 2.2
+    - create a service and dao methods for Product Entity, then add these methods Note: Dao should be extended from JPARepository
         - should return all products.
         - should find a product with given Id.
         - should save new product
         - should delete given product
 
+
     - create exception system for "ProductNotFound" +
 
 Question 2.3 (+)
+        - create a controller for product entity, then add these necessary endpoints
+        - should return all products.
+        - should find a product with given Id.
+        - should save new product
+        - should delete given product
+
+    - create exception system for "ProductNotFound"
+
+Question 2.3
+
     - purpose of @JoinColumn annotation.
     - purpose of @ManyToOne annotation.
     - purpose of @Column(columnDefinition = "TEXT") annotation.

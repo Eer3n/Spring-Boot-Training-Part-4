@@ -1,10 +1,19 @@
 package com.springCourse.springBootcamp.Seller.Controller;
 
 import com.springCourse.springBootcamp.Seller.Entity.Seller;
+
 import com.springCourse.springBootcamp.Seller.Exception.SellerNotFoundException;
 import com.springCourse.springBootcamp.Seller.Service.SellerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import com.springCourse.springBootcamp.Seller.Service.SellerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
@@ -27,6 +36,7 @@ public class SellerController {
     }
 
     @GetMapping("/{username}/{password}")
+
     public Seller findByUsernameAndPassword(@PathVariable String username, @PathVariable String password) throws Exception {
         Seller seller =  sellerService.findAllByUsernameAndPassword(username, password);
         if (seller == null) {
@@ -41,7 +51,8 @@ public class SellerController {
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody Seller seller){
+    public void delete(@RequestBody Seller seller) {
         sellerService.deleteGivenSeller(seller);
+
     }
 }
