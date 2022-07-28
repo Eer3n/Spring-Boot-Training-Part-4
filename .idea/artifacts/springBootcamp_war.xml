@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springBootcamp:war">
+    <output-path>$PROJECT_DIR$/springboot-course-master/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springBootcamp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springBootcamp-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="springBootcamp:war exploded" />
+    </root>
+  </artifact>
+</component>
