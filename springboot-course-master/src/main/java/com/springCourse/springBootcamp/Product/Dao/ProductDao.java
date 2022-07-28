@@ -24,21 +24,11 @@ public interface ProductDao extends JpaRepository<Product, Long> {
     //@Query("select product from Product product where product.seller=:seller")
     //Product findAllBySeller(@Param("seller") Seller seller);
 
-    @Query("select product from Product product where product.shortText=:shortText and product.longText=:longText")
-    Product findAllByShortTextAndLongText(@Param("shortText") String shortText, @Param("longText") String longText);
-
-    @Query("select product from Product product where product.insDate=:insDare and product.updDate=:updDate")
-    Product findAllByInsDateAndUpdDate(@Param("insDate") Date insDate, @Param("updDate") Date updDate);
-
-    @Query("select product from Product  product where product.displayPrice=:displayPrice and product.discountPrice=:discountPrice ")
-    Product findAllByDisplayPriceAndDiscountPrice(@Param("displayPrice") double displayPrice, @Param("discountPrice") double discountPrice);
-
     @Query("select product from Product product where product.isDeleted=:isDeleted")
     Product findAllByIsDeleted(@Param("isDeleted") boolean isDeleted);
 
-    Product save(Product product);
 
     @Query("delete from Product product where product.Id=:productId")
-    void deleteById(@Param("productId") Long Id);
+    void deleteById(@Param("productId") Long productId);
 
 }

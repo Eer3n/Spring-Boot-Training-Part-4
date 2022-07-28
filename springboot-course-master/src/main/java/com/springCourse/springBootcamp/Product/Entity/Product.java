@@ -1,5 +1,9 @@
 package com.springCourse.springBootcamp.Product.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.springCourse.springBootcamp.Buyer.Entity.Buyer;
+import com.springCourse.springBootcamp.Product.Entity.Base.BaseEntity;
+import com.springCourse.springBootcamp.Seller.Entity.Seller;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -16,20 +20,38 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    //private Seller seller; ?
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "buyer_id")
+    private Buyer buyer;
+
     private String title;
-    private String  shortText;
+    private String shortText;
+
+    @Column(columnDefinition = "TEXT")
     private String longText;
+
     private Date insDate;
     private Date updDate;
     private double displayPrice;
     private double discountPrice;
-    private boolean isDeleted;
+    private Boolean isDeleted;
+
+    @Override
+    public Long getId() {
+        return this.Id;
+    }
 
     @Override
     public boolean equals(Object o) {

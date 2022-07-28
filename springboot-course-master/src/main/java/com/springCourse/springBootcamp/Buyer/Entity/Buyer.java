@@ -1,5 +1,8 @@
 package com.springCourse.springBootcamp.Buyer.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.springCourse.springBootcamp.Product.Entity.Product;
 import com.springCourse.springBootcamp.User.Entity.User;
 import com.springCourse.springBootcamp.User.Enum.Gender;
 import lombok.Getter;
@@ -7,8 +10,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -35,6 +41,14 @@ public class Buyer extends User {
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;
     private String backupMailAddress;
+
+    @BatchSize(size = 10)
+    @JsonManagedReference
+    @OneToMany(orphanRemoval = true, fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "buyer")
+    @ToString.Exclude
+    private List<Product> productList = new ArrayList<>();
+
+
 
     @Override
     public boolean equals(Object o) {

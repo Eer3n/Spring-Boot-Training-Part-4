@@ -1,5 +1,7 @@
 package com.springCourse.springBootcamp.Seller.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.springCourse.springBootcamp.Product.Entity.Product;
 import com.springCourse.springBootcamp.User.Entity.User;
 import com.springCourse.springBootcamp.User.Enum.Countries;
 import com.springCourse.springBootcamp.User.Enum.UserStatus;
@@ -8,8 +10,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -32,6 +37,12 @@ public class Seller extends User {
     private int totalScore;
     private Countries countriesThatSells;
     private UserStatus userStatus;
+
+    @BatchSize(size = 10)
+    @JsonBackReference
+    @OneToMany(orphanRemoval = true, fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seller")
+    @ToString.Exclude
+    private List<Product> productList = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
